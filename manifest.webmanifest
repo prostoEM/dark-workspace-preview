@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "Dark Workspace",
-  "short_name": "Workspace",
+  "name": "Do it",
+  "short_name": "Do it",
   "description": "Ваши планы, фокус и время на себя.",
   "lang": "ru",
   "start_url": "./",
