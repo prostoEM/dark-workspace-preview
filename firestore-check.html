@@ -31,7 +31,7 @@
 <div id="probe-status" class="status" role="status" aria-live="polite"></div>
 <ol id="steps" aria-label="Этапы проверки"></ol>
 <details><summary>Временные правила для тестового проекта</summary>
-<p class="hint">Firestore Database → Rules. Правила разрешают только документы проверки с фиксированным содержимым. Действуют два часа после генерации. Используй их в отдельном тестовом проекте.</p>
+<p class="hint">Firestore Database → Rules. Правила разрешают только документы проверки с фиксированным содержимым. Действуют 24 часа после генерации. Используй их в отдельном тестовом проекте.</p>
 <textarea id="rules" aria-label="Временные правила Firestore" readonly spellcheck="false"></textarea>
 <div class="actions"><button id="copy-rules" type="button">Скопировать правила</button><button id="refresh-rules" type="button">Обновить срок</button></div>
 <div class="status" id="copy-status" role="status"></div>
@@ -70,7 +70,7 @@ probe.addEventListener('click',async()=>{
  }finally{busy=false;project.disabled=false;update()}
 });
 function rules(){
- const expires=new Date(Date.now()+2*60*60*1000).toISOString();
+ const expires=new Date(Date.now()+24*60*60*1000).toISOString();
  $('rules').value=`rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
