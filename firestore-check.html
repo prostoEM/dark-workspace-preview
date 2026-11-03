@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; connect-src https://firestore.googleapis.com; base-uri 'none'; form-action 'none'">
+<title>Do it · Проверка Firestore</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8eaed;background:#111316;font-synthesis:none}*{box-sizing:border-box}body{margin:0;padding:max(24px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) max(36px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left))}main{max-width:720px;margin:35px auto}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2b3036;padding-bottom:22px;margin-bottom:36px}a{color:#a9c6ec;text-decoration:none}.brand{font-weight:600;letter-spacing:-.5px;font-size:22px}.badge{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#929aa7}h1{font-size:clamp(28px,5vw,42px);line-height:1.1;letter-spacing:-1.5px;font-weight:550;margin:0 0 16px}p{font-size:14px;color:#a2aab5;line-height:1.7;margin:12px 0}section{padding:26px 0;border-bottom:1px solid #2b3036}h2{font-size:17px;letter-spacing:-.3px;font-weight:550;margin:0 0 14px}.number{font-size:12px;color:#8ba6ca;margin-right:12px}label{display:block;font-size:13px;margin-bottom:8px}input,textarea,button{font:inherit}input{width:100%;padding:14px;border:1px solid #3a424c;border-radius:8px;background:#181c21;color:#eff2f5;font-size:16px;min-height:48px}button{min-height:46px;padding:12px 17px;border:1px solid #3a424c;border-radius:8px;color:#e6e9ef;background:#20262d;cursor:pointer}button:disabled{opacity:.45;cursor:default}.primary{color:#111820;background:#b8d1ee;border-color:#b8d1ee;font-weight:550}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #b8d1ee;outline-offset:4px}.actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}.hint{font-size:12px;color:#929ba7}.status{font-size:13px;line-height:1.6;padding-top:12px;overflow-wrap:anywhere}.status[data-tone=good]{color:#a6cfb1}.status[data-tone=bad]{color:#e6abb0}.status[data-tone=wait]{color:#b8d1ee}ol{padding:0;list-style:none;margin:15px 0 0}li{display:grid;grid-template-columns:18px 1fr;gap:10px;border-top:1px solid #262c33;padding:12px 0;font-size:13px;line-height:1.5}li small{display:block;color:#939ca8;font-size:12px;margin-top:3px;overflow-wrap:anywhere}.dot{height:9px;width:9px;border:1px solid #697585;border-radius:50%;margin-top:5px}li[data-state=passed] .dot{background:#a6cfb1;border-color:#a6cfb1}li[data-state=failed] .dot{background:#e6abb0;border-color:#e6abb0}li[data-state=running] .dot{background:#b8d1ee;border-color:#b8d1ee;animation:pulse 1s ease-in-out infinite}details{margin-top:22px}summary{font-size:13px;cursor:pointer;padding:12px 0;color:#a9c6ec}textarea{width:100%;height:340px;background:#15191e;border:1px solid #303841;color:#b5beca;border-radius:8px;padding:14px;font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;resize:vertical}.foot{font-size:12px;margin-top:24px}.tag{display:inline-block;color:#c3ccd8;background:#232a33;font-family:ui-monospace,monospace;padding:1px 6px;border-radius:4px}.muted{font-size:11px;color:#737e8d}@keyframes pulse{50%{opacity:.35}}@media(max-width:500px){main{margin:12px auto}header{margin-bottom:28px}.badge{font-size:10px}section{padding:24px 0}.actions button{flex:1}h1{letter-spacing:-1px}textarea{font-size:13px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+</style>
+</head>
+<body><main>
+<header><a class="brand" href="./">Do it.</a><span class="badge">Проверка соединения</span></header>
+<h1>Доступ к Firestore</h1>
+<p>Отдельная проверка из GitHub Pages. Она использует только временные тестовые документы и не обращается к базе Timeweb.</p>
+<section>
+<h2><span class="number">01</span>Доступ к адресу API</h2>
+<p>Проверим, получает ли браузер JSON от Google. Для этого проект Firebase ещё не нужен.</p>
+<button id="discovery" type="button">Проверить соединение</button>
+<div id="discovery-status" class="status" role="status" aria-live="polite"></div>
+</section>
+<section>
+<h2><span class="number">02</span>Запись и чтение</h2>
+<p>Нужен отдельный пустой проект с базой Cloud Firestore <span class="tag">(default)</span> и временными правилами ниже. Вводи ID проекта, а не его название.</p>
+<label for="project">ID тестового проекта Firebase</label>
+<input id="project" placeholder="do-it-check-12345" autocomplete="off" spellcheck="false" autocapitalize="none" maxlength="30">
+<p class="hint">Пароль, API-ключ и доступ к Google-аккаунту эта страница не запрашивает.</p>
+<div class="actions"><button id="probe" class="primary" type="button" disabled>Проверить запись и чтение</button></div>
+<div id="probe-status" class="status" role="status" aria-live="polite"></div>
+<ol id="steps" aria-label="Этапы проверки"></ol>
+<details><summary>Временные правила для тестового проекта</summary>
+<p class="hint">Firestore Database → Rules. Правила разрешают только документы проверки с фиксированным содержимым. Действуют два часа после генерации. Используй их в отдельном тестовом проекте.</p>
+<textarea id="rules" aria-label="Временные правила Firestore" readonly spellcheck="false"></textarea>
+<div class="actions"><button id="copy-rules" type="button">Скопировать правила</button><button id="refresh-rules" type="button">Обновить срок</button></div>
+<div class="status" id="copy-status" role="status"></div>
+</details>
+</section>
+<p class="foot">Проверка выполняет PATCH → GET → DELETE и подтверждает удаление документа. Успех показывает доступность этих REST-запросов; Firebase Auth, WebSocket и SDK-синхронизация здесь не проверяются.</p>
+<p class="muted">Рабочее приложение и его данные не изменяются.</p>
+</main>
+<script type="module">
+import {probeFirestore,validProjectId} from './firestore-probe.mjs';
+const $=id=>document.getElementById(id);
+const project=$('project'),probe=$('probe'),status=$('probe-status'),list=$('steps');
+function show(el,text,tone='wait'){el.textContent=text;el.dataset.tone=tone}
+const preset=new URL(location.href).searchParams.get('project');if(preset&&validProjectId(preset))project.value=preset;
+let busy=false;function update(){probe.disabled=busy||!validProjectId(project.value.trim())}project.addEventListener('input',update);update();
+$('discovery').addEventListener('click',async()=>{
+ const button=$('discovery');button.disabled=true;show($('discovery-status'),'Проверяем…');
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
+ try{const r=await fetch('https://firestore.googleapis.com/$discovery/rest?version=v1',{credentials:'omit',cache:'no-store',signal:controller.signal});const data=await r.json();if(!r.ok||data.name!=='firestore')throw Error('Получен неожиданный ответ');show($('discovery-status'),'Адрес API доступен из этой страницы. Теперь можно проверить тестовую базу.','good')}
+ catch{show($('discovery-status'),'Браузер не получил ожидаемый ответ. Посмотри запрос firestore.googleapis.com в Network: это может быть сетевой фильтр, ошибка сети или CORS.','bad')}
+ finally{clearTimeout(timer);button.disabled=false}
+});
+probe.addEventListener('click',async()=>{
+ busy=true;update();project.disabled=true;list.replaceChildren();show(status,'Проверяем тестовый проект…');
+ const rows=new Map();
+ try{
+  await probeFirestore(project.value.trim(),{emit:event=>{
+   let row=rows.get(event.label);
+   if(!row){row=document.createElement('li');const dot=document.createElement('span');dot.className='dot';const text=document.createElement('div');const label=document.createElement('span');label.textContent=event.label;const detail=document.createElement('small');text.append(label,detail);row.append(dot,text);list.append(row);rows.set(event.label,row)}
+   row.dataset.state=event.state;row.querySelector('small').textContent=event.detail??'Выполняется…';
+  }});
+  show(status,'Запись, чтение и удаление прошли. Временный документ удалён.','good');
+ }catch(error){
+  const reason=error.status===403?'Google ответил, но не разрешил операцию. Проверь временные Rules тестового проекта.':error.status===404?'Проверь ID проекта и наличие базы (default).':error.message;
+  show(status,'Проверка не завершена. '+reason+(error.cleanupFailed?' Удаление временного документа не подтверждено; проверь коллекцию connection_test.':''),'bad');
+ }finally{busy=false;project.disabled=false;update()}
+});
+function rules(){
+ const expires=new Date(Date.now()+2*60*60*1000).toISOString();
+ $('rules').value=`rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /connection_test/{probe} {
+      function active() {
+        return request.time < timestamp.value('${expires}')
+          && probe.matches('github_[a-f0-9]{16}');
+      }
+      allow get, delete: if active();
+      allow create, update: if active()
+        && request.resource.data.keys().hasOnly(['message'])
+        && request.resource.data.message == 'do-it-connection-test';
+    }
+  }
+}`;
+ $('copy-status').textContent='';
+}
+rules();$('refresh-rules').addEventListener('click',rules);
+$('copy-rules').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('rules').value);show($('copy-status'),'Правила скопированы.','good')}catch{$('rules').focus();$('rules').select();show($('copy-status'),'Текст выделен. Скопируй его через меню браузера.')}});
+</script>
+</body></html>
