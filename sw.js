@@ -1,7 +1,7 @@
 /* Generated with a content-based revision. Personal API responses are never cached. */
-const CACHE = 'dw-shell-09a3a6af27a39bbe';
+const CACHE = 'dw-shell-40bd98f078661325';
 const APP_BASE = "/dark-workspace-preview/";
-const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/firestore-api-7ZR1hxaN.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-BO0srdiV.js","/dark-workspace-preview/index-Biwlab7w.css","/dark-workspace-preview/.gitkeep","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
+const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/firestore-api-D_HWuV1h.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-BihVwE_9.js","/dark-workspace-preview/index-Biwlab7w.css","/dark-workspace-preview/.gitkeep","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
 const KNOWN = new Set(PRECACHE);
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(PRECACHE)));
