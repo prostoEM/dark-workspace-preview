@@ -1,7 +1,7 @@
 /* Generated with a content-based revision. Personal API responses are never cached. */
-const CACHE = 'dw-shell-2728d052cc96217f';
+const CACHE = 'dw-shell-4d18d22c0c5df161';
 const APP_BASE = "/dark-workspace-preview/";
-const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/Methodologies-BF-OdeQ7.js","/dark-workspace-preview/Methodologies-EHoLE3kZ.css","/dark-workspace-preview/firestore-api-C_bQtthk.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-C7rdzwRX.css","/dark-workspace-preview/index-CQrpJJBN.js","/dark-workspace-preview/.gitkeep","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
+const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/Methodologies-DUhkyh8W.js","/dark-workspace-preview/Methodologies-EHoLE3kZ.css","/dark-workspace-preview/firestore-api-DWJgtd0R.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-C6vkEPG6.js","/dark-workspace-preview/index-WFw8c__L.css","/dark-workspace-preview/.gitkeep","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
 const KNOWN = new Set(PRECACHE);
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(PRECACHE)));
