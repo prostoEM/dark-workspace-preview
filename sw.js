@@ -1,7 +1,7 @@
 /* Generated with a content-based revision. Personal API responses are never cached. */
-const CACHE = 'dw-shell-1e774e2176c4d40d';
+const CACHE = 'dw-shell-04acbcc805f47be6';
 const APP_BASE = "/dark-workspace-preview/";
-const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/Methodologies-DMWq8Nnr.js","/dark-workspace-preview/Methodologies-EHoLE3kZ.css","/dark-workspace-preview/Roadmap-OavpYggQ.js","/dark-workspace-preview/firestore-api-DlQN02Lb.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-C6c4GCOM.js","/dark-workspace-preview/index-STqmfZzF.css","/dark-workspace-preview/planning-DtN5IvXH.js","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
+const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/Methodologies-DN4KHfeD.js","/dark-workspace-preview/Methodologies-EHoLE3kZ.css","/dark-workspace-preview/Roadmap-DiD3toSj.js","/dark-workspace-preview/firestore-api-2F-GO7_Q.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-C3lkyGTX.js","/dark-workspace-preview/index-STqmfZzF.css","/dark-workspace-preview/planning-C_LgDDYS.js","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
 const KNOWN = new Set(PRECACHE);
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(PRECACHE)));
