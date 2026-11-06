@@ -1,7 +1,7 @@
 /* Generated with a content-based revision. Personal API responses are never cached. */
-const CACHE = 'dw-shell-04acbcc805f47be6';
+const CACHE = 'dw-shell-5c88624cb9c8f081';
 const APP_BASE = "/dark-workspace-preview/";
-const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/Methodologies-DN4KHfeD.js","/dark-workspace-preview/Methodologies-EHoLE3kZ.css","/dark-workspace-preview/Roadmap-DiD3toSj.js","/dark-workspace-preview/firestore-api-2F-GO7_Q.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-C3lkyGTX.js","/dark-workspace-preview/index-STqmfZzF.css","/dark-workspace-preview/planning-C_LgDDYS.js","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
+const PRECACHE = ["/dark-workspace-preview/","/dark-workspace-preview/manifest.webmanifest","/dark-workspace-preview/FirebaseAuthGate-CkVHsl_O.css","/dark-workspace-preview/FirebaseAuthGate-CmTaZUuH.js","/dark-workspace-preview/Methodologies-DkUG5L87.js","/dark-workspace-preview/Methodologies-EHoLE3kZ.css","/dark-workspace-preview/Roadmap-BHHLrvtw.js","/dark-workspace-preview/firebase-auth-CrINIIDI.js","/dark-workspace-preview/firestore-api-Bi7-uY4W.js","/dark-workspace-preview/glass-renderer-CQNzZasN.js","/dark-workspace-preview/index-CF71-CEG.css","/dark-workspace-preview/index-c6dqcS2x.js","/dark-workspace-preview/planning-C_LgDDYS.js","/dark-workspace-preview/.gitkeep","/dark-workspace-preview/apple-touch-icon.png","/dark-workspace-preview/icon-192.png","/dark-workspace-preview/icon-512.png","/dark-workspace-preview/icon-maskable-512.png","/dark-workspace-preview/icon.svg"];
 const KNOWN = new Set(PRECACHE);
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(PRECACHE)));
